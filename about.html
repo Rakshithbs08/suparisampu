@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - SupariSampu</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, black, red);
+            color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 900px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border: 2px solid red;
+            box-shadow: 0 0 20px red, 0 0 40px black;
+            text-align: center;
+            animation: flicker 1.5s infinite;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px red, 0 0 30px black;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: white;
+            background: red;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 0 10px red, 0 0 20px black;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .btn:hover {
+            background: black;
+            transform: scale(1.1);
+        }
+
+        @keyframes flicker {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>About Us</h1>
+        <p>Welcome to SupariSampu, where we solve challenges through ethical and responsible means. We deliver bold and
+            effective solutions grounded in strong moral principles.</p>
+        <p>Our mission is to tackle tough challenges with creativity and honesty, delivering reliable and tailored
+            services. At SupariSampu, we stand for integrity, courage, and accountability.</p>
+        <p>Join us as we redefine what it means to take on challenges responsibly. Together, we can make a difference.
+        </p>
+        <a href="mailto:ysampreethi26@gmail.com" class="btn">Contact Us</a>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification - SupariSampu</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Creepster', cursive;
+            background: linear-gradient(135deg, black, red);
+            color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .otp-container {
+            background: black;
+            padding: 30px;
+            border: 2px solid red;
+            box-shadow: 0 0 20px red;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .otp-container h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 0 0 10px red, 0 0 20px black;
+        }
+
+        .otp-container input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid red;
+            border-radius: 5px;
+            background: black;
+            color: white;
+            font-family: 'Creepster', cursive;
+            text-align: center;
+        }
+
+        .otp-container input::placeholder {
+            color: grey;
+        }
+
+        .otp-container button {
+            background: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 0 10px red;
+            transition: background 0.3s;
+        }
+
+        .otp-container button:hover {
+            background: black;
+            color: red;
+        }
+
+        .otp-container a {
+            display: block;
+            margin-top: 10px;
+            color: red;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .otp-container a:hover {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="otp-container">
+        <h1>OTP Verification</h1>
+        <form id="otpForm" action="/Users/rakshithbs/Desktop/suparisampu/login.html" method="post"
+            onsubmit="sendOtp(event)">
+            <input type="tel" id="phone" name="phone" placeholder="Enter Phone Number" pattern="[0-9]{10}" required>
+            <input type="text" id="otp" name="otp" placeholder="Enter OTP" maxlength="6" style="display: none;"
+                required>
+            <button type="submit" id="verifyButton" style="display: none;">Verify</button>
+            <button type="button" id="sendOtpButton" onclick="showOtpInput()">Send OTP</button>
+        </form>
+        <a href="#" id="resendOtpLink" style="display: none;">Resend OTP</a>
+    </div>
+
+    <script>
+        function showOtpInput() {
+            const phoneInput = document.getElementById('phone');
+            if (phoneInput.checkValidity()) {
+                alert(`OTP has been sent to ${phoneInput.value}`);
+                document.getElementById('otp').style.display = 'block';
+                document.getElementById('verifyButton').style.display = 'inline-block';
+                document.getElementById('sendOtpButton').style.display = 'none';
+                document.getElementById('resendOtpLink').style.display = 'block';
+            } else {
+                alert('Please enter a valid phone number');
+            }
+        }
+
+        function sendOtp(event) {
+            event.preventDefault();
+            const otpInput = document.getElementById('otp');
+            if (otpInput.value.length === 6) {
+                alert('OTP Verified Successfully!');
+                document.getElementById('otpForm').submit();
+            } else {
+                alert('Please enter a valid OTP');
+            }
+        }
+    </script>
+</body>
+
+</html>

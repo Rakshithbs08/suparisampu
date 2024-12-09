@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SupariSampu - Loading</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            color: white;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .loading-container {
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .logo {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto;
+            background: url('/Users/rakshithbs/Desktop/suparisampu/suparisampu_logo.jpg') no-repeat center center;
+            background-size: contain;
+            animation: scaleUp 2s ease-in-out;
+        }
+
+        .typing-text {
+            font-size: 2rem;
+            margin-top: 20px;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid white;
+            width: 0;
+            animation: typing 4s steps(12, end), blink 0.5s step-end infinite alternate;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes scaleUp {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 12ch;
+            }
+        }
+
+        @keyframes blink {
+            from {
+                border-color: transparent;
+            }
+
+            to {
+                border-color: white;
+            }
+        }
+
+        .loading-bar {
+            margin-top: 30px;
+            width: 200px;
+            height: 10px;
+            background: #333;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 20px auto;
+        }
+
+        .loading-bar div {
+            width: 0;
+            height: 100%;
+            background: red;
+            animation: loadBar 4s ease-in-out;
+        }
+
+        @keyframes loadBar {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loading-container">
+        <div class="logo"></div>
+        <div class="typing-text">SupariSampu...</div>
+        <div class="loading-bar">
+            <div></div>
+        </div>
+    </div>
+    <script>
+        // Display a seamless transition to "Welcome to Dark Zone"
+        setTimeout(() => {
+            document.body.innerHTML = '<div style="display:flex; justify-content:center; align-items:center; height:100vh; background:black; font-family:Arial, sans-serif; font-size:2rem; color:white; animation: fadeIn 2s;">Welcome to Dark Zone</div>';
+
+            // Redirect to a new page after a short delay
+            setTimeout(() => {
+                window.location.href = '/Users/rakshithbs/Desktop/suparisampu/landing.html'; // Replace with your destination page
+            }, 3000);
+        }, 4500);
+    </script>
+</body>
+
+</html>
